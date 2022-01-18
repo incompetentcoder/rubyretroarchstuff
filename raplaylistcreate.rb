@@ -19,7 +19,7 @@ File.exists?(options[:file]) ? inp=File.open(options[:file]).read.split("\n") : 
 inp.each do |lol|
   hm={}
   hm["path"]=lol
-  File.basename(lol) == "" ? next : hm["label"]=File.basename(lol)
+  File.basename(lol) == "" ? next : hm["label"]=lol.split(File::SEPARATOR)[-2..-1].join(":")
   hm["core_path"]="DETECT"
   hm["core_name"]="DETECT"
   hm["crc32"]="DETECT"
